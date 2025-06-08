@@ -1,0 +1,546 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Snowflake MCP Server - AI-Powered Data Exploration QuickStart</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            background: white;
+            box-shadow: 0 0 30px rgba(0,0,0,0.1);
+            border-radius: 10px;
+            overflow: hidden;
+        }
+        
+        .header {
+            background: linear-gradient(135deg, #2c3e50 0%, #3498db 100%);
+            color: white;
+            padding: 2rem;
+            text-align: center;
+        }
+        
+        .header h1 {
+            font-size: 2.5rem;
+            margin-bottom: 0.5rem;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+        }
+        
+        .header p {
+            font-size: 1.2rem;
+            opacity: 0.9;
+        }
+
+        .badge {
+            display: inline-block;
+            background: #e74c3c;
+            color: white;
+            padding: 0.3rem 0.8rem;
+            border-radius: 20px;
+            font-size: 0.9rem;
+            margin: 0.5rem 0.3rem;
+            font-weight: bold;
+        }
+        
+        .nav {
+            background: #34495e;
+            padding: 1rem;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+        
+        .nav ul {
+            list-style: none;
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 1rem;
+        }
+        
+        .nav a {
+            color: white;
+            text-decoration: none;
+            padding: 0.5rem 1rem;
+            border-radius: 5px;
+            transition: background-color 0.3s;
+        }
+        
+        .nav a:hover {
+            background: #3498db;
+        }
+        
+        .content {
+            padding: 2rem;
+        }
+        
+        .section {
+            margin-bottom: 3rem;
+            padding: 1.5rem;
+            border-radius: 8px;
+            background: #f8f9fa;
+            border-left: 4px solid #3498db;
+        }
+        
+        .section h2 {
+            color: #2c3e50;
+            margin-bottom: 1rem;
+            font-size: 1.8rem;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+        
+        .section h3 {
+            color: #34495e;
+            margin: 1.5rem 0 0.5rem 0;
+            font-size: 1.3rem;
+        }
+        
+        .feature-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 1.5rem;
+            margin: 1rem 0;
+        }
+        
+        .feature-card {
+            background: white;
+            padding: 1.5rem;
+            border-radius: 8px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            border-left: 4px solid #e74c3c;
+        }
+        
+        .feature-card h4 {
+            color: #e74c3c;
+            margin-bottom: 0.5rem;
+            font-size: 1.1rem;
+        }
+        
+        .step-list {
+            background: white;
+            padding: 1.5rem;
+            border-radius: 8px;
+            margin: 1rem 0;
+        }
+        
+        .step-list ol {
+            padding-left: 1.5rem;
+        }
+        
+        .step-list li {
+            margin-bottom: 0.8rem;
+            padding-left: 0.5rem;
+        }
+        
+        .code-block {
+            background: #2c3e50;
+            color: #ecf0f1;
+            padding: 1rem;
+            border-radius: 5px;
+            font-family: 'Monaco', 'Consolas', monospace;
+            margin: 1rem 0;
+            overflow-x: auto;
+        }
+        
+        .warning {
+            background: #fff3cd;
+            border: 1px solid #ffeaa7;
+            border-radius: 5px;
+            padding: 1rem;
+            margin: 1rem 0;
+            border-left: 4px solid #f39c12;
+        }
+        
+        .success {
+            background: #d1ecf1;
+            border: 1px solid #bee5eb;
+            border-radius: 5px;
+            padding: 1rem;
+            margin: 1rem 0;
+            border-left: 4px solid #17a2b8;
+        }
+
+        .demo-highlight {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 2rem;
+            border-radius: 8px;
+            margin: 2rem 0;
+            text-align: center;
+        }
+
+        .demo-highlight h3 {
+            color: white;
+            font-size: 1.5rem;
+            margin-bottom: 1rem;
+        }
+
+        .big-button {
+            display: inline-block;
+            background: #e74c3c;
+            color: white;
+            padding: 1rem 2rem;
+            border-radius: 8px;
+            text-decoration: none;
+            font-weight: bold;
+            font-size: 1.1rem;
+            margin: 1rem;
+            transition: background 0.3s;
+        }
+
+        .big-button:hover {
+            background: #c0392b;
+        }
+        
+        .footer {
+            background: #2c3e50;
+            color: white;
+            text-align: center;
+            padding: 2rem;
+            margin-top: 3rem;
+        }
+        
+        .emoji {
+            font-size: 1.2em;
+        }
+        
+        @media (max-width: 768px) {
+            .container {
+                margin: 0;
+                border-radius: 0;
+            }
+            
+            .header h1 {
+                font-size: 2rem;
+            }
+            
+            .nav ul {
+                flex-direction: column;
+                align-items: center;
+            }
+            
+            .content {
+                padding: 1rem;
+            }
+            
+            .feature-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header class="header">
+            <h1><span class="emoji">❄️</span> Snowflake MCP Server</h1>
+            <p>AI-Powered Data Exploration with Model Context Protocol</p>
+            <div>
+                <span class="badge">🚀 HACKATHON READY</span>
+                <span class="badge">🤖 AI POWERED</span>
+                <span class="badge">⚡ ONE-CLICK DEMO</span>
+                <span class="badge">🏗️ MCP PROTOCOL</span>
+            </div>
+        </header>
+        
+        <nav class="nav">
+            <ul>
+                <li><a href="#quick-demo">🚀 Quick Demo</a></li>
+                <li><a href="#overview">🎯 Overview</a></li>
+                <li><a href="#getting-started">⚡ Getting Started</a></li>
+                <li><a href="#features">✨ Features</a></li>
+                <li><a href="#usage">📖 Usage Guide</a></li>
+                <li><a href="#troubleshooting">🔧 Troubleshooting</a></li>
+            </ul>
+        </nav>
+        
+        <main class="content">
+            <section id="quick-demo" class="demo-highlight">
+                <h3><span class="emoji">🚀</span> Demo-Ready in 30 Seconds!</h3>
+                <p>Experience the power of AI-driven database exploration immediately</p>
+                <div>
+                    <a href="#" class="big-button">🖱️ Double-Click Launch_Snowflake_MCP.command</a>
+                    <a href="http://localhost:8501" class="big-button">🌐 Open http://localhost:8501</a>
+                </div>
+                <p style="margin-top: 1rem; opacity: 0.9;">
+                    <strong>No configuration required!</strong> Works immediately with realistic mock data.
+                </p>
+            </section>
+            
+            <section id="overview" class="section">
+                <h2><span class="emoji">🎯</span> Project Overview</h2>
+                
+                <div class="success">
+                    <strong><span class="emoji">🏆</span> Hackathon Innovation:</strong> 
+                    Revolutionary Model Context Protocol (MCP) server that transforms Snowflake database interaction through AI-powered natural language processing and intelligent data exploration capabilities.
+                </div>
+                
+                <h3>🔥 What Makes This Special</h3>
+                <div class="feature-grid">
+                    <div class="feature-card">
+                        <h4><span class="emoji">🏗️</span> MCP Protocol Implementation</h4>
+                        <p>First-of-its-kind Model Context Protocol server for Snowflake, enabling standardized AI-database interactions.</p>
+                    </div>
+                    <div class="feature-card">
+                        <h4><span class="emoji">🤖</span> Natural Language Queries</h4>
+                        <p>Ask questions like "Show me customer data" and get instant SQL generation and execution.</p>
+                    </div>
+                    <div class="feature-card">
+                        <h4><span class="emoji">⚡</span> Instant Demo</h4>
+                        <p>One-click launcher with mock data - perfect for hackathon demonstrations and judge reviews.</p>
+                    </div>
+                    <div class="feature-card">
+                        <h4><span class="emoji">📊</span> Professional Interface</h4>
+                        <p>Streamlit-powered dashboard with real-time analytics, multiple tabs, and comprehensive features.</p>
+                    </div>
+                </div>
+                
+                <h3>🎯 Problem & Solution</h3>
+                <div class="step-list">
+                    <p><strong>The Challenge:</strong> Traditional database tools require SQL expertise and lack standardized AI integration, creating barriers for business users and limiting AI-assisted data operations.</p>
+                    <br>
+                    <p><strong>Our Innovation:</strong> A comprehensive MCP server that standardizes AI-database interactions, transforming natural language into Snowflake queries through the Model Context Protocol while providing intelligent data exploration via an intuitive web interface.</p>
+                </div>
+            </section>
+            
+            <section id="getting-started" class="section">
+                <h2><span class="emoji">⚡</span> Getting Started</h2>
+                
+                <h3>🚀 Option 1: One-Click Demo (Recommended)</h3>
+                <div class="step-list">
+                    <ol>
+                        <li><strong>Double-click</strong> the <code>Launch_Snowflake_MCP.command</code> file</li>
+                        <li><strong>Wait</strong> for automatic setup (dependencies install automatically)</li>
+                        <li><strong>Browser opens</strong> automatically to <code>http://localhost:8501</code></li>
+                        <li><strong>Start exploring</strong> with pre-loaded mock data immediately!</li>
+                    </ol>
+                </div>
+                
+                <div class="success">
+                    <strong><span class="emoji">✨</span> Demo Magic:</strong> 
+                    Works immediately with realistic mock data - no Snowflake credentials needed for demonstration!
+                </div>
+                
+                <h3>⚙️ Option 2: Manual Setup</h3>
+                <div class="code-block">
+# Clone the repository
+git clone https://github.com/YOUR_USERNAME/snowflake-mcp-server.git
+cd snowflake-mcp-server
+
+# Install dependencies
+pip install -r requirements.txt
+
+# Launch the application
+streamlit run streamlit_app.py
+                </div>
+                
+                <h3>🔧 Option 3: Production Setup</h3>
+                <div class="step-list">
+                    <ol>
+                        <li><strong>Copy Configuration:</strong> <code>cp config_template.json config.json</code></li>
+                        <li><strong>Add Credentials:</strong> Edit <code>config.json</code> with your Snowflake details</li>
+                        <li><strong>Launch:</strong> Use the launcher or manual commands above</li>
+                        <li><strong>Verify:</strong> Check connection status in the Dashboard tab</li>
+                    </ol>
+                </div>
+                
+                <div class="warning">
+                    <strong><span class="emoji">💡</span> Pro Tip:</strong> 
+                    For hackathon demos, stick with Option 1! The mock data demonstrates all features perfectly.
+                </div>
+            </section>
+            
+            <section id="features" class="section">
+                <h2><span class="emoji">✨</span> Key Features</h2>
+                
+                <h3>🏗️ MCP Server Architecture</h3>
+                <div class="feature-grid">
+                    <div class="feature-card">
+                        <h4><span class="emoji">🔌</span> Protocol Implementation</h4>
+                        <p>Full Model Context Protocol server for standardized AI-database communication.</p>
+                    </div>
+                    <div class="feature-card">
+                        <h4><span class="emoji">🔄</span> Enhanced Connector</h4>
+                        <p>Robust Snowflake bridge with retry logic, connection pooling, and error handling.</p>
+                    </div>
+                    <div class="feature-card">
+                        <h4><span class="emoji">🧪</span> Comprehensive Testing</h4>
+                        <p>Full test suite covering MCP, UI, database, and integration scenarios.</p>
+                    </div>
+                    <div class="feature-card">
+                        <h4><span class="emoji">🔒</span> Enterprise Security</h4>
+                        <p>Encrypted credential storage and MCP request sandboxing.</p>
+                    </div>
+                </div>
+                
+                <h3>🤖 AI-Powered Interface</h3>
+                <div class="feature-grid">
+                    <div class="feature-card">
+                        <h4><span class="emoji">💬</span> Natural Language Chat</h4>
+                        <p>Ask questions in plain English: "Show me top customers by revenue"</p>
+                    </div>
+                    <div class="feature-card">
+                        <h4><span class="emoji">📊</span> Interactive Dashboard</h4>
+                        <p>Real-time metrics, performance tracking, and connection monitoring.</p>
+                    </div>
+                    <div class="feature-card">
+                        <h4><span class="emoji">🔍</span> Advanced Query Tools</h4>
+                        <p>Visual query builder, SQL editor with syntax highlighting, and multiple output formats.</p>
+                    </div>
+                    <div class="feature-card">
+                        <h4><span class="emoji">📈</span> Data Analytics</h4>
+                        <p>Statistical analysis, visualizations, and automated insights generation.</p>
+                    </div>
+                </div>
+            </section>
+            
+            <section id="usage" class="section">
+                <h2><span class="emoji">📖</span> Usage Guide</h2>
+                
+                <h3>🎮 Demo Scenarios</h3>
+                
+                <h4>👔 Scenario 1: Business Analyst</h4>
+                <div class="step-list">
+                    <ol>
+                        <li><strong>Open AI Chat:</strong> Navigate to the "🤖 AI Chat" tab</li>
+                        <li><strong>Ask Natural Questions:</strong> "What are our top performing products?"</li>
+                        <li><strong>Get Instant Results:</strong> AI generates SQL, executes, and explains results</li>
+                        <li><strong>Drill Down:</strong> "Show me regional breakdown for top product"</li>
+                        <li><strong>Export Analysis:</strong> Download results as CSV/Excel for reports</li>
+                    </ol>
+                </div>
+                
+                <h4>🔧 Scenario 2: Data Engineer</h4>
+                <div class="step-list">
+                    <ol>
+                        <li><strong>Query Tools:</strong> Use "🔍 Query Tools" for direct SQL control</li>
+                        <li><strong>Performance Monitoring:</strong> Check execution times and optimize</li>
+                        <li><strong>Schema Exploration:</strong> Browse database structure in "📊 Data Explorer"</li>
+                        <li><strong>Advanced Analytics:</strong> Generate statistical summaries and correlations</li>
+                    </ol>
+                </div>
+                
+                <h4>👨‍💼 Scenario 3: Executive Dashboard</h4>
+                <div class="step-list">
+                    <ol>
+                        <li><strong>Dashboard Overview:</strong> Check "📊 Dashboard" for key metrics</li>
+                        <li><strong>Real-time KPIs:</strong> Monitor query performance and system health</li>
+                        <li><strong>Quick Insights:</strong> Use AI chat for instant business questions</li>
+                        <li><strong>Export Summaries:</strong> Generate executive reports with one click</li>
+                    </ol>
+                </div>
+                
+                <h3>💬 Example AI Queries</h3>
+                <div class="code-block">
+• "Show me data from the customer table"
+• "Find all active users from last month"
+• "What's the average revenue per customer?"
+• "List top 10 products by sales volume"
+• "Analyze user engagement trends"
+• "Export sales data for Q4 analysis"
+• "Show me database schema overview"
+                </div>
+                
+                <h3>🎛️ Interface Navigation</h3>
+                <div class="feature-grid">
+                    <div class="feature-card">
+                        <h4><span class="emoji">📊</span> Dashboard</h4>
+                        <p>Overview, performance metrics, and connection status monitoring.</p>
+                    </div>
+                    <div class="feature-card">
+                        <h4><span class="emoji">🤖</span> AI Chat</h4>
+                        <p>Natural language query interface with intelligent response generation.</p>
+                    </div>
+                    <div class="feature-card">
+                        <h4><span class="emoji">🔍</span> Query Tools</h4>
+                        <p>Direct SQL execution with multiple output formats and performance tracking.</p>
+                    </div>
+                    <div class="feature-card">
+                        <h4><span class="emoji">📈</span> Data Explorer</h4>
+                        <p>Table browsing, schema analysis, and comprehensive data statistics.</p>
+                    </div>
+                </div>
+            </section>
+            
+            <section id="troubleshooting" class="section">
+                <h2><span class="emoji">🔧</span> Troubleshooting</h2>
+                
+                <h3>⚡ Quick Fixes</h3>
+                
+                <div class="warning">
+                    <strong>Issue:</strong> Application won't start
+                    <br><br>
+                    <strong>Solutions:</strong>
+                    <ul>
+                        <li>Ensure Python 3.8+ is installed</li>
+                        <li>Try: <code>pip install -r requirements.txt</code></li>
+                        <li>Check port 8501 is available</li>
+                        <li>Run: <code>streamlit run streamlit_app.py --server.port 8502</code></li>
+                    </ul>
+                </div>
+                
+                <div class="warning">
+                    <strong>Issue:</strong> Connection failed (Production Mode)
+                    <br><br>
+                    <strong>Solutions:</strong>
+                    <ul>
+                        <li>Verify <code>config.json</code> credentials</li>
+                        <li>Test with Snowflake's SnowSQL first</li>
+                        <li>Check network connectivity</li>
+                        <li>Use "Test Connection" button in app</li>
+                    </ul>
+                </div>
+                
+                <div class="warning">
+                    <strong>Issue:</strong> AI features not working
+                    <br><br>
+                    <strong>Solutions:</strong>
+                    <ul>
+                        <li>Demo mode has mock AI responses (this is normal!)</li>
+                        <li>For real AI: Add Google AI API key to config</li>
+                        <li>Run "AI Health Check" in Admin Tools</li>
+                        <li>Check debug information in sidebar</li>
+                    </ul>
+                </div>
+                
+                <h3>🔍 Debug Mode</h3>
+                <div class="step-list">
+                    <ol>
+                        <li>Click "🐛 Debug" button in the sidebar</li>
+                        <li>Debug panels will show detailed information</li>
+                        <li>Check logs at <code>snowflake_mcp_client.log</code></li>
+                        <li>Use debug info when reporting issues</li>
+                    </ol>
+                </div>
+                
+                <div class="success">
+                    <strong><span class="emoji">💡</span> Remember:</strong> 
+                    For hackathon demos, the mock data mode is perfect! All features work beautifully without any real Snowflake setup.
+                </div>
+            </section>
+        </main>
+        
+        <footer class="footer">
+            <p>&copy; 2024 Snowflake MCP Server - AI-Powered Data Exploration</p>
+            <p>🏆 Built for Innovation • 🤖 Powered by AI • ❄️ Enhanced with MCP Protocol</p>
+            <p><span class="emoji">🚀</span> Ready for Hackathon Demonstrations <span class="emoji">🎯</span></p>
+        </footer>
+    </div>
+</body>
+</html>
