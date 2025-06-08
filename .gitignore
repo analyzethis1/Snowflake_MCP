@@ -1,0 +1,239 @@
+# Snowflake MCP Server - Git Ignore File
+# Protects sensitive data and development files
+
+# === SENSITIVE CONFIGURATION ===
+# Never commit real credentials or API keys
+config.json
+.env
+.env.local
+.env.production
+secrets.json
+credentials.json
+snowflake_credentials.json
+
+# === PYTHON ===
+# Byte-compiled / optimized / DLL files
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+
+# Distribution / packaging
+.Python
+build/
+develop-eggs/
+dist/
+downloads/
+eggs/
+.eggs/
+lib/
+lib64/
+parts/
+sdist/
+var/
+wheels/
+share/python-wheels/
+*.egg-info/
+.installed.cfg
+*.egg
+MANIFEST
+
+# PyInstaller
+*.manifest
+*.spec
+
+# Installer logs
+pip-log.txt
+pip-delete-this-directory.txt
+
+# Unit test / coverage reports
+htmlcov/
+.tox/
+.nox/
+.coverage
+.coverage.*
+.cache
+nosetests.xml
+coverage.xml
+*.cover
+*.py,cover
+.hypothesis/
+.pytest_cache/
+cover/
+
+# === VIRTUAL ENVIRONMENTS ===
+# Virtual environment directories
+.venv/
+venv/
+ENV/
+env/
+.env/
+
+# Conda environments
+.conda/
+
+# === STREAMLIT ===
+# Streamlit specific files
+.streamlit/
+.streamlit/secrets.toml
+streamlit_app.log
+
+# === JUPYTER NOTEBOOKS ===
+.ipynb_checkpoints
+*.ipynb
+
+# === LOGS ===
+# Log files
+*.log
+logs/
+*.out
+*.err
+
+# Application specific logs
+snowflake_mcp_server.log
+app.log
+debug.log
+error.log
+
+# === DATABASES ===
+# SQLite databases
+*.db
+*.sqlite
+*.sqlite3
+
+# === IDE & EDITORS ===
+# VS Code
+.vscode/
+*.code-workspace
+
+# PyCharm
+.idea/
+*.iml
+*.ipr
+*.iws
+
+# Vim
+*.swp
+*.swo
+*~
+
+# Emacs
+*~
+\#*\#
+/.emacs.desktop
+/.emacs.desktop.lock
+*.elc
+auto-save-list
+tramp
+.\#*
+
+# Sublime Text
+*.sublime-project
+*.sublime-workspace
+
+# === MACOS ===
+# macOS system files
+.DS_Store
+.DS_Store?
+._*
+.Spotlight-V100
+.Trashes
+ehthumbs.db
+Thumbs.db
+
+# === WINDOWS ===
+# Windows thumbnail cache files
+Thumbs.db
+Thumbs.db:encryptable
+ehthumbs.db
+ehthumbs_vista.db
+
+# Dump file
+*.stackdump
+
+# Folder config file
+[Dd]esktop.ini
+
+# Recycle Bin used on file shares
+$RECYCLE.BIN/
+
+# Windows Installer files
+*.cab
+*.msi
+*.msix
+*.msm
+*.msp
+
+# Windows shortcuts
+*.lnk
+
+# === OUTPUT FILES ===
+# Generated reports and exports
+output/
+exports/
+reports/
+downloads/
+temp/
+tmp/
+
+# CSV and Excel exports
+*.csv
+*.xlsx
+*.xls
+!sample_data.csv
+!demo_data.xlsx
+
+# === CACHE FILES ===
+# Python cache
+*.pyc
+*.pyo
+*.pyd
+.Python
+
+# General cache
+cache/
+.cache/
+.temp/
+
+# === BACKUP FILES ===
+# Backup files
+*.bak
+*.backup
+*.orig
+*.tmp
+
+# === DOCUMENTATION ===
+# Sphinx documentation
+docs/_build/
+
+# === NODE.JS (if using any JS tools) ===
+node_modules/
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+
+# === MISC ===
+# Certificates and keys
+*.pem
+*.key
+*.crt
+*.cer
+*.p12
+*.pfx
+
+# Compressed files
+*.zip
+*.tar.gz
+*.rar
+
+# Lock files (keep requirements.txt but ignore lock files)
+Pipfile.lock
+poetry.lock
+
+# === ALLOW SPECIFIC FILES ===
+# Keep these important files even if they match patterns above
+!requirements.txt
+!config_template.json
+!sample_config.json
+!.gitignore
+!README.md
