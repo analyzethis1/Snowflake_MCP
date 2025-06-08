@@ -316,6 +316,7 @@ streamlit run streamlit_app.py --server.runOnSave true
 
 ## 🙏 **Acknowledgments**
 
+- **Apple** for hosting this Hackathon
 - **Snowflake** for the powerful cloud data platform
 - **Streamlit** for the amazing web app framework  
 - **Model Context Protocol** for standardized AI integration
@@ -325,7 +326,7 @@ streamlit run streamlit_app.py --server.runOnSave true
 
 ## 📞 **Contact & Support**
 
-- **Team**: Alfredo Sebastian Gutierrez Munizaga, Nithin Kumar, Chris Karim & Dylan Sanders
+- **Team Members**: Alfredo Sebastian Gutierrez Munizaga, Nithin Kumar, Chris Karim & Dylan Sanders
 - **Demo Video**: [Coming Soon]
 - **Live Demo**: `http://localhost:8501` (after setup)
 - **Documentation**: [GitHub Wiki](../../wiki)
