@@ -1,0 +1,125 @@
+{
+  "_comment": "Snowflake MCP Server Configuration Template",
+  "_instructions": [
+    "1. Copy this file to 'config.json' in the same directory",
+    "2. Replace all placeholder values with your actual Snowflake credentials",
+    "3. The config.json file is automatically ignored by Git for security",
+    "4. Without this file, the app runs in demo mode with mock data"
+  ],
+  
+  "snowflake": {
+    "_comment": "Core Snowflake connection settings - ALL REQUIRED",
+    "account": "your-account.snowflakecomputing.com",
+    "user": "your-username",
+    "password": "your-password",
+    "warehouse": "your-warehouse",
+    "database": "your-database",
+    "schema": "your-schema",
+    
+    "_optional_settings": "The following settings are optional but recommended",
+    "role": "your-role-name",
+    "region": "us-west-2",
+    "timeout": 300,
+    "login_timeout": 30
+  },
+  
+  "application": {
+    "_comment": "Application behavior settings",
+    "demo_mode": false,
+    "max_query_time": 300,
+    "cache_enabled": true,
+    "cache_ttl": 3600,
+    "debug_mode": false,
+    "log_level": "INFO"
+  },
+  
+  "security": {
+    "_comment": "Security and access control settings",
+    "enable_query_logging": true,
+    "max_rows_returned": 10000,
+    "allowed_operations": ["SELECT", "SHOW", "DESCRIBE"],
+    "blocked_keywords": ["DROP", "DELETE", "TRUNCATE", "ALTER"],
+    "enable_export": true,
+    "max_export_rows": 50000
+  },
+  
+  "ui": {
+    "_comment": "User interface customization",
+    "app_title": "Enhanced Snowflake AI Assistant",
+    "company_name": "Your Company Name",
+    "theme": "dark",
+    "show_connection_status": true,
+    "enable_ai_chat": true,
+    "default_tab": "dashboard"
+  },
+  
+  "advanced": {
+    "_comment": "Advanced configuration options",
+    "connection_pool_size": 5,
+    "retry_attempts": 3,
+    "retry_delay": 1,
+    "query_timeout": 60,
+    "enable_query_optimization": true,
+    "auto_commit": true
+  },
+  
+  "_examples": {
+    "_comment": "Example configurations for different use cases",
+    
+    "example_production": {
+      "account": "ab12345.us-west-2.snowflakecomputing.com",
+      "user": "analytics_user",
+      "password": "SecurePassword123!",
+      "warehouse": "ANALYTICS_WH",
+      "database": "PROD_DB",
+      "schema": "PUBLIC",
+      "role": "ANALYST_ROLE"
+    },
+    
+    "example_development": {
+      "account": "ab12345.us-west-2.snowflakecomputing.com", 
+      "user": "dev_user",
+      "password": "DevPassword456!",
+      "warehouse": "DEV_WH",
+      "database": "DEV_DB",
+      "schema": "TESTING",
+      "role": "DEVELOPER_ROLE"
+    },
+    
+    "example_demo": {
+      "account": "demo.snowflakecomputing.com",
+      "user": "demo_user", 
+      "password": "DemoPass789!",
+      "warehouse": "DEMO_WH",
+      "database": "DEMO_DB",
+      "schema": "SAMPLE_DATA",
+      "role": "PUBLIC"
+    }
+  },
+  
+  "_setup_instructions": {
+    "step_1": "Get your Snowflake account URL from your admin",
+    "step_2": "Ensure your user has appropriate permissions",
+    "step_3": "Test connection with Snowflake's SnowSQL first",
+    "step_4": "Copy this template to config.json",
+    "step_5": "Replace placeholder values with real credentials",
+    "step_6": "Restart the Streamlit application",
+    "step_7": "Check connection status in the app dashboard"
+  },
+  
+  "_troubleshooting": {
+    "connection_failed": "Check account URL format: account.region.snowflakecomputing.com",
+    "authentication_failed": "Verify username and password are correct",
+    "warehouse_error": "Ensure warehouse exists and user has access",
+    "permission_denied": "Contact admin to grant necessary role permissions",
+    "timeout_issues": "Increase timeout values or check network connectivity"
+  },
+  
+  "_security_notes": [
+    "NEVER commit config.json to version control",
+    "Use environment variables for production deployments",
+    "Consider using Snowflake key-pair authentication for enhanced security",
+    "Regularly rotate passwords and review access permissions",
+    "Enable query logging for audit compliance"
+  ]
+}
