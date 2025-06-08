@@ -75,9 +75,9 @@ An AI-powered interface that transforms natural language into Snowflake queries,
 │   (Frontend)    │    │  (Enhanced)      │    │   (Backend)     │
 └─────────────────┘    └──────────────────┘    └─────────────────┘
          │                       │                       │
-         │              ┌──────────────────┐            │
-         └──────────────│   MCP Server     │────────────┘
-                        │   (Compatibility) │
+         │              ┌──────────────────┐             │
+         └──────────────│   MCP Server     │─────────────┘
+                        │  (Compatibility) │
                         └──────────────────┘
 ```
 
