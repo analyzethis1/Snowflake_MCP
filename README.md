@@ -1,7 +1,5 @@
 # ❄️ Snowflake MCP Server - AI-Powered Data Exploration
 
-> **Winner-Ready Hackathon Project**: AI-driven Streamlit application for intelligent Snowflake database exploration with Model Context Protocol (MCP) integration
-
 [![Streamlit](https://img.shields.io/badge/Streamlit-FF4B4B?style=for-the-badge&logo=streamlit&logoColor=white)](https://streamlit.io/)
 [![Snowflake](https://img.shields.io/badge/Snowflake-29B5E8?style=for-the-badge&logo=snowflake&logoColor=white)](https://snowflake.com/)
 [![Python](https://img.shields.io/badge/Python-3776AB?style=for-the-badge&logo=python&logoColor=white)](https://python.org/)
