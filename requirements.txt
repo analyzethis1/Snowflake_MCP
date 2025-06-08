@@ -1,0 +1,94 @@
+# Snowflake MCP Server - AI-Powered Data Exploration Tool
+# Requirements for Streamlit application with Snowflake integration
+
+# Core Web Framework
+streamlit>=1.28.0
+streamlit-option-menu>=0.3.6
+
+# Database Connectivity
+snowflake-connector-python>=3.4.0
+sqlparse>=0.4.4
+
+# Data Processing & Analysis
+pandas>=2.0.0
+numpy>=1.24.0
+pyarrow>=12.0.0
+
+# Data Visualization
+plotly>=5.15.0
+matplotlib>=3.7.0
+seaborn>=0.12.0
+
+# Configuration & Environment
+python-dotenv>=1.0.0
+pydantic>=2.0.0
+typing-extensions>=4.7.0
+
+# Utilities & File Handling
+requests>=2.31.0
+pathlib2>=2.3.7
+openpyxl>=3.1.0
+xlsxwriter>=3.1.0
+
+# Logging & Monitoring
+loguru>=0.7.0
+
+# Date & Time Handling
+python-dateutil>=2.8.0
+pytz>=2023.3
+
+# JSON & Data Serialization
+orjson>=3.9.0
+
+# Security & Authentication
+cryptography>=41.0.0
+keyring>=24.2.0
+
+# Development & Testing (Optional)
+pytest>=7.4.0
+pytest-asyncio>=0.21.0
+black>=23.7.0
+flake8>=6.0.0
+
+# Performance & Caching
+cachetools>=5.3.0
+diskcache>=5.6.0
+
+# Async Support
+aiohttp>=3.8.0
+asyncio-throttle>=1.0.2
+
+# Rich Console Output (for CLI tools)
+rich>=13.5.0
+
+# HTTP & API Utilities
+urllib3>=2.0.0
+certifi>=2023.7.0
+
+# Memory & Resource Management
+psutil>=5.9.0
+
+# Text Processing
+Jinja2>=3.1.0
+
+# Progress Bars & UI Enhancements
+tqdm>=4.66.0
+
+# Data Validation
+marshmallow>=3.20.0
+
+# File System Utilities
+watchdog>=3.0.0
+
+# Optional: AI/ML Libraries (if implementing advanced features)
+# openai>=0.28.0
+# langchain>=0.0.300
+# anthropic>=0.7.0
+
+# Optional: Advanced Data Processing
+# dask>=2023.8.0
+# polars>=0.19.0
+
+# Note: Some packages may have compatibility requirements
+# Run: pip install -r requirements.txt
+# For development: pip install -r requirements.txt -e .
