@@ -325,7 +325,7 @@ streamlit run streamlit_app.py --server.runOnSave true
 
 ## 📞 **Contact & Support**
 
-- **Project Lead**: Alfredo Sebastian Gutierrez Munizaga, Nithin Kumar, Chris Karim & Dylan Sanders
+- **Team**: Alfredo Sebastian Gutierrez Munizaga, Nithin Kumar, Chris Karim & Dylan Sanders
 - **Demo Video**: [Coming Soon]
 - **Live Demo**: `http://localhost:8501` (after setup)
 - **Documentation**: [GitHub Wiki](../../wiki)
