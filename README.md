@@ -1,9 +1,9 @@
 # ❄️ Snowflake MCP Server - AI-Powered Data Exploration
 
-[![Streamlit](https://img.shields.io/badge/Streamlit-FF4B4B?style=for-the-badge&logo=streamlit&logoColor=white)](https://streamlit.io/)
-[![Snowflake](https://img.shields.io/badge/Snowflake-29B5E8?style=for-the-badge&logo=snowflake&logoColor=white)](https://snowflake.com/)
-[![Python](https://img.shields.io/badge/Python-3776AB?style=for-the-badge&logo=python&logoColor=white)](https://python.org/)
-[![AI](https://img.shields.io/badge/AI_Powered-00D4AA?style=for-the-badge&logo=openai&logoColor=white)](#)
+[![Built for Snowflake](https://img.shields.io/badge/Built%20for-Snowflake-29B5E8.svg?logo=snowflake)](https://snowflake.com/)
+[![Powered by Interlinked AI](https://img.shields.io/badge/Powered%20by-Interlinked%20AI-blue.svg)](https://github.com/interlinked-ai/interlinked)
+[![Made with Streamlit](https://img.shields.io/badge/Made%20with-Streamlit-red.svg)](https://streamlit.io/)
+
 
 ## 🚀 **Live Demo - Try It Now!**
 
