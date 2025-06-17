@@ -329,7 +329,6 @@ streamlit run streamlit_app.py --server.runOnSave true
 - **Team Members**: Alfredo Sebastian Gutierrez Munizaga, Nithin Kumar, Chris Karim & Dylan Sanders
 - **Demo Video**: [Coming Soon]
 - **Live Demo**: `http://localhost:8501` (after setup)
-- **Documentation**: [GitHub Wiki](../../wiki)
 
 ---
 
